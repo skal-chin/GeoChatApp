@@ -4,19 +4,19 @@ import { JwtBodyDto } from 'server/dto/jwt_body.dto';
 import { ChatRoom } from 'server/entities/chat_room.entity';
 import { User } from 'server/entities/user.entity';
 import { ChatRoomService } from 'server/providers/services/chat_room.service';
-import { UserService} from 'server/providers/services/users.service';
+import { UsersService} from 'server/providers/services/users.service';
 
 class ChatRoomPostBody {
-  name : string,
-  longitude : number,
-  latitude : number,
+  name : string;
+  longitude : number;
+  latitude : number;
 }
 
 @Controller()
 export class ChatRoomController {
   constructor(
     private chatRoomService : ChatRoomService,
-    private userService : UserService,
+    private userService : UsersService,
     ) {}
 
   @Get('chat_rooms/')
