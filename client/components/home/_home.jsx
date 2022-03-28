@@ -4,7 +4,7 @@ import { ApiContext } from '../../utils/api_context';
 import { AuthContext } from '../../utils/auth_context';
 import { RolesContext } from '../../utils/roles_context';
 import { Button } from '../common/button';
-import { Ping } from './ping';
+import { RoomList } from '../common/room_list';
 
 export const Home = () => {
   const [, setAuthToken] = useContext(AuthContext);
@@ -15,10 +15,16 @@ export const Home = () => {
 
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [loc, setLoc] = useState(null);
   useEffect(async () => {
     const res = await api.get('/users/me');
     setUser(res.user);
     setLoading(false);
+
+    navigator.geolocation.getCurrentPosition((location) => {
+      console.log(location.coords);
+      setLoc(location.coords);
+    });
   }, []);
 
   const logout = async () => {
@@ -43,9 +49,13 @@ export const Home = () => {
           Admin
         </Button>
       )}
-      <section>
-        <Ping />
-      </section>
+
+      <div>
+        {loc &&
+          <RoomList location={loc}></RoomList>
+        }
+
+      </div>
     </div>
   );
 };

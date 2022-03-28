@@ -6,11 +6,13 @@ import { ChatRoomService } from 'server/providers/services/chat_room.service';
 import { ChatMessagesGateway } from "server/providers/gateways/chat_messages.gateway";
 import { JwtService } from "server/providers/services/jwt.service";
 import { GuardUtil } from "server/providers/util/guard.util";
+import { UsersService } from "server/providers/services/users.service";
+import { UsersModule } from "./users.module";
 
 @Module({
-  imports : [TypeOrmModule.forFeature([ChatRoom])],
+  imports : [TypeOrmModule.forFeature([ChatRoom]), UsersModule],
   controllers : [ChatRoomController],
-  providers : [ChatRoomService, ChatMessagesGateway, JwtService, GuardUtil],
+  providers : [ChatRoomService, UsersService, ChatMessagesGateway, JwtService, GuardUtil],
   exports : [TypeOrmModule],
 })
 export class ChatRoomModule {}

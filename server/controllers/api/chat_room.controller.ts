@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Post, HttpException} from '@nestj
 import { JwtBody } from 'server/decorators/jwt_body.decorator';
 import { JwtBodyDto } from 'server/dto/jwt_body.dto';
 import { ChatRoom } from 'server/entities/chat_room.entity';
-import { User } from 'server/entities/user.entity';
 import { ChatRoomService } from 'server/providers/services/chat_room.service';
 import { UsersService} from 'server/providers/services/users.service';
 
@@ -50,7 +49,7 @@ export class ChatRoomController {
   @Delete('chat_rooms/:id')
   public async delete(@Param('id') id : string, @JwtBody() jwtBody : JwtBodyDto) {
     const chatRoom = await this.chatRoomService.find(parseInt(id, 10));
-    const user = this.userService.find(jwtBody.userId);
+    const user = await this.userService.find(jwtBody.userId);
 
     if (user.email !== chatRoom.owner) {
       throw new HttpException('Unauthorized', 401);
