@@ -4,6 +4,7 @@ import { JwtBodyDto } from 'server/dto/jwt_body.dto';
 import { ChatRoom } from 'server/entities/chat_room.entity';
 import { ChatRoomService } from 'server/providers/services/chat_room.service';
 import { UsersService} from 'server/providers/services/users.service';
+import * as crypto from 'crypto';
 
 class ChatRoomPostBody {
   name : string;
@@ -36,7 +37,7 @@ export class ChatRoomController {
     let chatRoom = new ChatRoom();
 
     chatRoom.name = body.name;
-    // generate key
+    chatRoom.key = crypto.randomBytes(8).toString('hex');
     chatRoom.longitude = body.longitude;
     chatRoom.latitude = body.latitude;
     chatRoom.owner = user.email;

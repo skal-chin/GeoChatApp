@@ -22,7 +22,6 @@ export const Home = () => {
     setLoading(false);
 
     navigator.geolocation.getCurrentPosition((location) => {
-      console.log(location.coords);
       setLoc(location.coords);
     });
   }, []);
@@ -39,23 +38,42 @@ export const Home = () => {
   }
 
   return (
-    <div className="p-4">
-      <h1>Welcome {user.firstName}</h1>
-      <Button type="button" onClick={logout}>
-        Logout
-      </Button>
-      {roles.includes('admin') && (
-        <Button type="button" onClick={() => navigate('/admin')}>
-          Admin
-        </Button>
-      )}
+    // <div className="p-4">
+    //   <h1>Welcome {user.firstName}</h1>
+    //   <Button type="button" onClick={logout}>
+    //     Logout
+    //   </Button>
+    //   {roles.includes('admin') && (
+    //     <Button type="button" onClick={() => navigate('/admin')}>
+    //       Admin
+    //     </Button>
+    //   )}
 
-      <div>
-        {loc &&
-          <RoomList location={loc}></RoomList>
-        }
+    //   <div className="side-bar">
+    //     {loc &&
+    //       <RoomList userLocation={loc}></RoomList>
+    //     }
+
+    //   </div>
+    // </div>
+
+    <div className="container">
+      <div className="side-bar">
+        <div className="name-box">{user.firstName[0].toUpperCase()}{user.lastName[0].toUpperCase()}</div>
+        <Button className="logout-button" type="button" onClick={logout}>Logout</Button>
+
+        <div>
+          {loc && 
+            <RoomList userLocation={loc}></RoomList>
+          }
+        </div>
 
       </div>
+      
+      <div className="chat-box">
+
+      </div>
+
     </div>
   );
 };
