@@ -5,6 +5,7 @@ import { AuthContext } from '../../utils/auth_context';
 import { RolesContext } from '../../utils/roles_context';
 import { Button } from '../common/button';
 import { RoomList } from '../common/room_list';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const [, setAuthToken] = useContext(AuthContext);
@@ -38,28 +39,10 @@ export const Home = () => {
   }
 
   return (
-    // <div className="p-4">
-    //   <h1>Welcome {user.firstName}</h1>
-    //   <Button type="button" onClick={logout}>
-    //     Logout
-    //   </Button>
-    //   {roles.includes('admin') && (
-    //     <Button type="button" onClick={() => navigate('/admin')}>
-    //       Admin
-    //     </Button>
-    //   )}
-
-    //   <div className="side-bar">
-    //     {loc &&
-    //       <RoomList userLocation={loc}></RoomList>
-    //     }
-
-    //   </div>
-    // </div>
 
     <div className="container">
       <div className="side-bar">
-        <div className="name-box">{user.firstName[0].toUpperCase()}{user.lastName[0].toUpperCase()}</div>
+        <div className="name-box"><Link to={'/'}>{user.firstName[0].toUpperCase()}{user.lastName[0].toUpperCase()}</Link></div>
         <Button className="logout-button" type="button" onClick={logout}>Logout</Button>
 
         <div>

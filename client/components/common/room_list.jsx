@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../../utils/api_context";
 import mapboxgl from 'mapbox-gl';
+import { Link } from 'react-router-dom';
 
 export const RoomList = ({userLocation}) => {
   const [rooms, setRooms] = useState([]);
@@ -75,8 +76,10 @@ export const RoomList = ({userLocation}) => {
 
       {rooms && 
           rooms.map((room) => (
-            <div className="channel-box" key={room.id}>{room.name}</div>
-
+            
+            <div className="channel-box" key={room.id}>
+              <Link to={`/chat_rooms/${room.id}`}>{room.name}</Link>
+            </div>
       ))}
 
     </div>

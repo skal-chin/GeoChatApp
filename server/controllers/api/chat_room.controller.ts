@@ -27,7 +27,9 @@ export class ChatRoomController {
 
   @Get('chat_rooms/:id')
   public async show(@Param('id') id : string) {
-    const chatRoom = await this.chatRoomService.find(parseInt(id, 10));
+    const chatRoom = await this.chatRoomService.find(parseInt(id, 10)); 
+    console.log(chatRoom);
+       
     return { chatRoom };
   }
 

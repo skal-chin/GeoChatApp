@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { AuthContext } from " ./auth_context";
+import { AuthContext } from "./auth_context";
 import { io } from "socket.io-client";
 
 export const useMessages = (chatRoom) => {
@@ -32,7 +32,7 @@ export const useMessages = (chatRoom) => {
       };
     }
     return () => {};
-  }, [chatroom]);
+  }, [chatRoom]);
 
   const sendMessage = (contents, user) => {
     socket.emit('message', {
