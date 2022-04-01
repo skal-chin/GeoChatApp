@@ -5,6 +5,7 @@ import { ApiContext } from '../../utils/api_context';
 import { Paper } from '../common/paper';
 import { Input } from '../common/input';
 import { Button } from '../common/button';
+import '../../sign_in.css';
 
 export const SignUp = () => {
   const [, setAuthToken] = useContext(AuthContext);

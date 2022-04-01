@@ -140,6 +140,23 @@
   min-width: 144px;
 }
 
+.sign-back {
+  background-color: var(--mc-water);
+}
+
+.sign-in {
+  background-color: var(--mc-leaf);
+  color: white;
+}
+
+.sign-in input {
+  color: black;
+}
+
+.sign-in Button {
+  background-color: var(--mc-dirt);
+}
+
 .top-bar{
   width: 100%;
   height: 10%;

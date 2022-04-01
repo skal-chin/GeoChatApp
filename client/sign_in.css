@@ -1,0 +1,7 @@
+:root {
+  --mc-water : #2F5591;
+}
+
+body {
+  background-color: var(--mc-water);
+}
