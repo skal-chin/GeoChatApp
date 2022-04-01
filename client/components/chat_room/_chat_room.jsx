@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router";
 import { ApiContext } from "../../utils/api_context";
 import { useMessages } from "../../utils/use_messages";
+import { MessageBox } from "../common/message_box";
 
 export const ChatRoom = () => {
   const [chatRoom, setChatRoom] = useState(null);
@@ -33,17 +34,16 @@ export const ChatRoom = () => {
       <div className="top-bar">
         {chatRoom.name}
       </div>
-      <div>
+      <div className="messages-container">
         {messages.map ((message) => (
           <div key={message.id}>
-            <h3>{ message.user }</h3>
-            {message.contents}
+            <MessageBox contents={message.contents} userName={message.userName}></MessageBox>
           </div>
         ))}
       </div>
 
-      <div>
-        <input type="text" value={contents} onChange={(e) => setContents(e.target.value)} />
+      <div className="chat-container">
+        <textarea placeholder="Start Typing..." type="text" value={contents} onChange={(e) => setContents(e.target.value)} />
         <button onClick={() => sendMessages(contents, user)}>Send</button>
       </div>
 

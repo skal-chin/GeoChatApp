@@ -7,8 +7,9 @@ import { useApi } from './utils/use_api';
 import { useJwtRefresh } from './utils/use_jwt_refresh';
 import { RolesContext } from './utils/roles_context';
 import { parseJwt } from './utils/parse_jwt';
-import './app.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import './app.css';
+
 
 export const App = () => {
   const [authToken, setAuthToken] = useState(null);

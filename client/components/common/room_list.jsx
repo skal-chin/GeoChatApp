@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../../utils/api_context";
-import mapboxgl from 'mapbox-gl';
 import { Link } from 'react-router-dom';
+import mapboxgl from 'mapbox-gl';
 
 export const RoomList = ({userLocation}) => {
   const [rooms, setRooms] = useState([]);

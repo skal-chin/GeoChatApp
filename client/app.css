@@ -5,14 +5,24 @@
 @tailwind utilities;
 
 :root {
+  --mc-dirt : #44240D;
+  --mc-sand : #D7D69E;
+  --mc-grass : #ACCA59;
+  --mc-sky : #5C82E8;
+  --mc-water : #2F5591;
+  --mc-leaf : #476520;
   
+}
+.app {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .channel-box {
   padding: 12px;
-  background-color: black;
-  border-radius: 18px;
-  color: white;
+  background-color: var(--mc-sand);
+  color: black;
   margin-left: 12px;
   margin-right: 12px;
   margin-bottom: 6px;
@@ -28,6 +38,37 @@
 .container {
   display: flex;
   flex-direction: row;
+  width: 100%;
+}
+
+.chat-room-container {
+  height: 100%;
+  width: 100%;
+}
+.chat-container {
+  width: 100%;
+  height: 10%;
+  background-color: var(--mc-dirt);
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  min-height: 115px;
+}
+
+.chat-container textarea {
+  resize: none;
+  outline: none;
+  overflow: hidden;
+  height: 70%;
+}
+
+.chat-container button {
+  background-color: var(--mc-sand);
+  color: black;
+  border-color: black;
+  margin-top: 12px;
+  width: 54px;
+  margin-left: 90%;
 }
 
 .create-box {
@@ -38,16 +79,42 @@
 }
 
 .logout-button {
-  background-color: darkslategray;
-  border-radius: 12px;
+  background-color: var(--mc-sand);
   margin: 6px 12px;
   padding: 12px 0px;
   font-size: larger;
-  color: white;
+  color: black;
 }
 
 .logout-button:hover {
   background-color: slategray;
+}
+
+.messages-container {
+  background-color: var(--mc-grass);
+  height: 84vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.message-box {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  margin: 9px 18px;
+  font-size: larger;
+  color: white;
+  background-color: var(--mc-leaf);
+}
+
+.message-box h3 {
+  font-weight: bold;
+}
+
+.message-box:hover {
+  background-color: gray;
 }
 
 .name-box {
@@ -56,17 +123,29 @@
   margin: 6px 12px;
   margin-left: 25%;
   padding: 6px 12px;
-  background-color: black;
+  background-color: var(--mc-sand);
   border-radius: 100%;
-  color: white;
+  color: black;
   font-size: x-large;
 }
 
 .side-bar{
   display: flex;
   flex-direction: column;
-  background-color: darkgrey;
-  width: 144px;
-  height: 100vh;
+  flex: 1;
+  background-color: var(--mc-water);
+  height: 109vh;
+  border-right: solid;
+  max-width: 144px;
+  min-width: 144px;
+}
+
+.top-bar{
+  width: 100%;
+  height: 10%;
+  background-color: var(--mc-dirt);
+  color: white;
+  font-size: x-large;
+  padding: 18px;
 }
 
