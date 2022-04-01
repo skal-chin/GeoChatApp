@@ -53,6 +53,7 @@ export const RoomList = ({userLocation}) => {
       setRooms([...rooms, newRoom.newChatRoom]);
       setRoomName('');
       setCreateSuccess(true);
+      
     }
 
   };
