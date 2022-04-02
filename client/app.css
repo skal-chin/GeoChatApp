@@ -93,9 +93,11 @@
 .messages-container {
   background-color: var(--mc-grass);
   height: 84vh;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: end;
+  
 }
 
 .message-box {

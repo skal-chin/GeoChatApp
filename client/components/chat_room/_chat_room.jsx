@@ -44,7 +44,7 @@ export const ChatRoom = () => {
 
       <div className="chat-container">
         <textarea placeholder="Start Typing..." type="text" value={contents} onChange={(e) => setContents(e.target.value)} />
-        <button onClick={() => sendMessages(contents, user)}>Send</button>
+        <button onClick={() => { setContents(''); sendMessages(contents, user)}}>Send</button>
       </div>
 
     </div>
